@@ -1,0 +1,7 @@
+temp
+*.pyc
+__pycache__
+.vscode
+*/.DS_Store
+*/mDeBERTa (ft) V6
+test_*
