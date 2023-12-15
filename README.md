@@ -29,7 +29,7 @@ uvicorn main:app --reload
 ```
 
 # How the API work
-The **POST** request should be sent to URL http://127.0.0.1:8000/claim with the request body: 
+The **POST** request should be sent to URL http://127.0.0.1:8000/ai-fact-check with the request body: 
 ```json
 {
   "claim": "[YOUR_CLAIM]"
