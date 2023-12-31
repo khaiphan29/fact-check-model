@@ -103,7 +103,7 @@ class MyCrawler:
         elif provider == "vov.vn":
             content = self.crawl_byContainer(url, "div", "article-content")
         elif provider == "vtv.vn":
-            content = self.crawl_byContainer(url, "div", "content_detail")
+            content = self.crawl_byContainer(url, "div", "ta-justify")
         elif provider == "vi.wikipedia.org":
             content = self.crawl_byContainer(url, "div", "mw-content-ltr")
         elif provider == "www.vinmec.com":
@@ -117,8 +117,8 @@ class MyCrawler:
         elif provider == "dantri.com.vn":
             content = self.crawl_byContainer(url, "article", "singular-container")
             
-        elif provider == "plo.vn":
-            content = self.crawl_byContainer(url, "div", "article__body")
+        # elif provider == "plo.vn":
+        #     content = self.crawl_byContainer(url, "div", "article__body")
         
         return provider, url, content
     
@@ -241,3 +241,16 @@ class MyCrawler:
         except Exception as e:
             print(e)
             return []
+        
+    @timer_func
+    def scraping(self, url: str):
+        try:
+            provider, url, content = self.crawl_webcontent(url)
+
+            if content:
+                return True
+            return False
+
+        except Exception as e:
+            print(e)
+            return False

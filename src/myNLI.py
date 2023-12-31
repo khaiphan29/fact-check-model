@@ -145,13 +145,15 @@ class FactChecker:
     def predict(self, claim):
         crawler = MyCrawler()
         evidences = crawler.searchGoogle(claim)
-        tokenized_claim = nltk.tokenize.sent_tokenize(claim)
 
         if evidences:
+            tokenized_claim = nltk.tokenize.sent_tokenize(claim)
             evidence = evidences[0]
             tokenized_evidence = nltk.tokenize.sent_tokenize(evidence["content"])
+            # print("TOKENIZED EVIDENCES")
+            # print(tokenized_evidence)
             _, top_rst = self.get_similarity_v2(tokenized_claim, tokenized_evidence)
-
+            
             processed_evidence = "\n".join(top_rst[0]["evidences"])
             print(processed_evidence)
 
